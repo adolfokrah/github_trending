@@ -3,7 +3,6 @@ import { useMemo } from 'react';
 import type { Repository, GitHubResponse } from '@/lib/types';
 
 const fetchTrendingRepos = async (): Promise<Repository[]> => {
-  // Calculate date 7 days ago
   const date = new Date();
   date.setDate(date.getDate() - 7);
   const formattedDate = date.toISOString().split('T')[0];
@@ -29,11 +28,8 @@ export const useGitHubRepos = () => {
   } = useQuery({
     queryKey: ['trending-repos'],
     queryFn: fetchTrendingRepos,
-    staleTime: 5 * 60 * 1000, // 5 minutes
-    gcTime: 10 * 60 * 1000, // 10 minutes (formerly cacheTime)
   });
 
-  // Extract unique languages using useMemo for performance
   const languages = useMemo(() => {
     return Array.from(
       new Set(

@@ -15,7 +15,6 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   }
 
   static getDerivedStateFromError(error: Error): ErrorBoundaryState {
-    // Update state so the next render will show the fallback UI
     return {
       hasError: true,
       error,
@@ -24,7 +23,6 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    // Log the error to an error reporting service
     console.error('Error caught by boundary:', error, errorInfo);
     
     this.setState({
@@ -47,7 +45,6 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 
   render() {
     if (this.state.hasError) {
-      // Custom fallback UI
       if (this.props.fallback) {
         return this.props.fallback;
       }
@@ -67,33 +64,21 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
               </p>
             </div>
 
-            {/* Error details in development */}
-            {process.env.NODE_ENV === 'development' && this.state.error && (
+            {this.state.error && (
               <Alert className="border-destructive/50 bg-destructive/10">
-                <AlertTriangle className="h-4 w-4" />
-                <AlertDescription className="text-sm">
-                  <details className="mt-2">
-                    <summary className="cursor-pointer font-medium text-destructive">
-                      Error Details (Development Only)
-                    </summary>
-                    <div className="mt-2 space-y-2">
-                      <div>
-                        <strong>Error:</strong> {this.state.error.message}
-                      </div>
-                      {this.state.errorInfo && (
-                        <div>
-                          <strong>Component Stack:</strong>
-                          <pre className="text-xs mt-1 overflow-auto bg-muted p-2 rounded">
-                            {this.state.errorInfo.componentStack}
-                          </pre>
-                        </div>
-                      )}
-                    </div>
-                  </details>
+                <AlertDescription className="text-destructive">
+                  {this.state.error.message}
                 </AlertDescription>
               </Alert>
             )}
-
+            {this.state.errorInfo && (
+              <div className="text-sm text-muted-foreground">
+                <p>Error details:</p>
+                <pre className="bg-card p-4 rounded-md">
+                  {this.state.errorInfo.componentStack}
+                </pre>
+              </div>
+            )}
             <div className="flex flex-col sm:flex-row gap-3">
               <Button 
                 onClick={this.handleReset} 
