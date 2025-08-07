@@ -1,4 +1,4 @@
-import { LanguageFilter } from "@/components/language-filter";
+import { LanguageFilter } from "@/components/LanguageFilter";
 
 interface IndexFilterBarProps {
   activeTab: string;

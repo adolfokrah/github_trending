@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
-import { RepoCard } from '@/components/repo-card'
+import { RepoCard } from '@/components/RepoCard'
 import type { Repository } from '@/lib/types'
 
 // Mock repository data

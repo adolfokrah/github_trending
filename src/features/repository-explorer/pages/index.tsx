@@ -1,5 +1,5 @@
 import { Tabs, TabsContent } from "@/components/ui/tabs";
-import Header from "@/components/header";
+import Header from "@/components/Header";
 import TrendingRepos from "../components/TrendingRepos";
 import StarredRepos from "../components/StarredRepos";
 import { IndexTabs } from "../components/IndexTabs";

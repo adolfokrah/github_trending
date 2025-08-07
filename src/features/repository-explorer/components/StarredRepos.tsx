@@ -1,5 +1,5 @@
 import { Star } from "lucide-react";
-import { RepoCard } from "@/components/repo-card";
+import { RepoCard } from "@/components/RepoCard";
 import type { StarredReposProps } from "@/lib/types";
 
 const StarredRepos = ({ repos, onToggleStar }: StarredReposProps) => {

@@ -1,4 +1,4 @@
-import { RepoCard } from "@/components/repo-card";
+import { RepoCard } from "@/components/RepoCard";
 import type { TrendingReposProps } from "@/lib/types";
 
 const TrendingRepos = ({ 
