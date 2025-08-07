@@ -5,7 +5,7 @@ import { MemoryRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { http, HttpResponse } from 'msw'
 import { setupServer } from 'msw/node'
-import Index from '@/pages/Index'
+import Index from '@/features/repository-explorer/pages'
 import type { GitHubResponse } from '@/lib/types'
 
 // Mock data for different scenarios

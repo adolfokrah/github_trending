@@ -1,3 +1,5 @@
+import { ReactNode, ErrorInfo } from 'react';
+
 export interface Repository {
   id: number;
   name: string;
@@ -41,4 +43,16 @@ export interface TrendingReposProps {
 export interface StarredReposProps {
   repos: Repository[];
   onToggleStar: (repoId: number) => void;
+}
+
+// Error Boundary Types
+export interface ErrorBoundaryProps {
+  children: ReactNode;
+  fallback?: ReactNode;
+}
+
+export interface ErrorBoundaryState {
+  hasError: boolean;
+  error: Error | null;
+  errorInfo: ErrorInfo | null;
 }
