@@ -188,7 +188,3 @@ Example URLs:
 - **Error Boundaries**: Graceful error handling at component boundaries
 - **Performance**: Optimized re-renders with proper memoization
 - **Accessibility**: Semantic HTML and ARIA labels throughout
-
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
