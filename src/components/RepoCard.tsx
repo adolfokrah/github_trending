@@ -3,23 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { RepoCardProps } from "@/lib/types";
+import { formatDate, formatStarCount } from "@/lib/utils";
 
 export const RepoCard = ({ repo, isStarred, onToggleStar }: RepoCardProps) => {
-  const formatStarCount = (count: number) => {
-    if (count >= 1000) {
-      return `${(count / 1000).toFixed(1)}k`;
-    }
-    return count.toString();
-  };
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
-      month: 'short', 
-      day: 'numeric',
-      year: 'numeric'
-    });
-  };
 
   return (
     <Card className="p-6 bg-gradient-card border-border hover:border-primary/30 transition-all duration-300 hover:shadow-card group" role="article">

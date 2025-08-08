@@ -1,26 +1,7 @@
+import { formatDate, formatStarCount } from '@/lib/utils'
 import { describe, it, expect } from 'vitest'
 
-// Test utility functions that could be extracted from components
 describe('Utility Functions', () => {
-  // Extract and test the formatStarCount function from RepoCard
-  const formatStarCount = (count: number): string => {
-    if (count >= 1000000) {
-      return `${(count / 1000000).toFixed(1)}M`
-    }
-    if (count >= 1000) {
-      return `${(count / 1000).toFixed(1)}k`
-    }
-    return count.toString()
-  }
-
-  const formatDate = (dateString: string): string => {
-    const date = new Date(dateString)
-    return date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'short', 
-      day: 'numeric' 
-    })
-  }
 
   describe('formatStarCount', () => {
     it('should format numbers under 1000 as-is', () => {
